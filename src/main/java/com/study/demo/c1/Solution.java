@@ -1,6 +1,8 @@
 package com.study.demo.c1;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author sunjx
@@ -17,7 +19,14 @@ public class Solution {
      * 返回[ 0，1 ]。
      */
 
-    // 这是最慢的版本 3% faster
+
+    /**
+     * 这是最慢的版本 3% faster
+     *
+     * @param nums
+     * @param target 两个数之和
+     * @return
+     */
     public static int[] twoSum0(int[] nums, int target) {
         if (nums.length < 2) {
             return null;
@@ -37,7 +46,13 @@ public class Solution {
         return null;
     }
 
-    // 稍微好一点 6% faster
+    /**
+     * 稍微好一点 6% faster
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public static int[] twoSum1(int[] nums, int target) {
         if (nums.length < 2) {
             return null;
@@ -55,16 +70,22 @@ public class Solution {
         return null;
     }
 
-    // 好多了 39%
+    /**
+     * 好多了 39%，时间受参数影响
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public static int[] twoSum2(int[] nums, int target) {
         if (nums.length < 2) {
             return null;
         }
         for (int i = 0; i < nums.length; i++) {
-            int j =   i+ 1 ;
-            while(j < nums.length){
-                if(nums[i] + nums[j] == target){
-                    return new int[]{i,j};
+            int j = i + 1;
+            while (j < nums.length) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
                 }
                 j++;
             }
@@ -72,6 +93,29 @@ public class Solution {
         return null;
     }
 
+    /**
+     * 43.52% 看来用Map更快
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    public static int[] twoSum3(int[] nums, int target) {
+        if (nums.length < 2) {
+            return null;
+        }
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement) && map.get(complement) != i) {
+                return new int[]{i, map.get(complement)};
+            }
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
         int[] params = new int[]{2, 7, 11, 15};
