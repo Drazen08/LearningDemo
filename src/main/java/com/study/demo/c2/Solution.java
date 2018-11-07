@@ -26,41 +26,8 @@ class Solution {
      */
 
     /**
-     * 解决方案 第一次的
-     *
-     * @param l1
-     * @param l2
-     * @return
-     */
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        List<ListNode> r = new ArrayList<ListNode>();
-        int temp = 0;
-        ListNode rrr = new ListNode(0);
-        ListNode result = rrr;
-        while (l1 != null && l2!= null) {
-            int i = l1.val + l2.val;
-            if (temp > 0) {
-                i += temp;
-                temp = 0;
-            }
-            if (i >= 10) {
-                temp++;
-                i = i - 10;
-            }
-            r.add(new ListNode(i));
-            l1 = l1.next;
-            l2 = l2.next;
-        }
-        r.add(new ListNode(l1.val + l2.val + temp));
-        for (int i = 0; i < r.size(); i++) {
-            result.next = r.get(i);
-            result = result.next;
-        }
-        return rrr.next;
-    }
-
-    /**
      * 能力有限，看的答案，唉。。。
+     *
      * @param l1
      * @param l2
      * @return
@@ -105,7 +72,7 @@ class Solution {
         l2.next.next = new ListNode(4);
 
         Solution s = new Solution();
-        ListNode r = s.addTwoNumbers(l1, l2);
+        ListNode r = s.addTwoNumbers2(l1, l2);
         System.out.println(r);
     }
 }
