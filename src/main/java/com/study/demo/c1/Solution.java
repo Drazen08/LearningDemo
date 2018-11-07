@@ -8,7 +8,7 @@ import java.util.Map;
  * @author sunjx
  * @Date 2018/9/28 15:43
  */
-public class Solution {
+class Solution {
 
     /**
      * 给定一个整数数组，返回两个数字的索引，使它们相加到特定目标。
