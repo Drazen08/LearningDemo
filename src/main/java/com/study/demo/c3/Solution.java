@@ -1,9 +1,5 @@
 package com.study.demo.c3;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
 
 /**
  * Created by S on 2018/11/7.
@@ -29,17 +25,26 @@ class Solution {
      * Output: 3
      */
 
+
+    /**
+     * @param s
+     * @return
+     */
     public int lengthOfLongestSubstring(String s) {
         int result = 0;
-        List<String> list = new LinkedList<String>();
-        for (int i = 0; i < s.length(); i++){
-            String r = s.substring(0,i+1);
-            int index = list.indexOf(r);
-            if(index != -1){
-                result = i - index;
-                break;
-            }else{
-                list.add(r);
+        int index = 0;
+        for (int i = 0; i < s.length(); i++) {
+            String c = s.substring(i, i + 1);
+            String r = s.substring(index, i + 1);
+            System.out.println(c);
+            System.out.println(r);
+            System.out.println(r.lastIndexOf(c));
+            if (r.indexOf(c) != i) {
+                System.out.println("hi");
+                index = i;
+                result = 0;
+            } else {
+                result++;
             }
         }
         return result;
