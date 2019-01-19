@@ -39,17 +39,23 @@ class Solution {
         Set<Character> current = new HashSet<Character>();
         int max = 0;
         for (int i = 0; i < s.length(); i++) {
+            char a = s.charAt(i);
+            if (current.contains(a)) {
+                max = current.size() > max ? current.size() : max;
+                current.clear();
+                current.add(s.charAt(i - 1));
+            }
+            current.add(a);
             if (i + 1 == s.length()) {
                 break;
             }
-
         }
-        return max;
+        return current.size() > max ? current.size() : max;
     }
 
 
     public static void main(String[] args) {
-        String param = "pwwlew";
+        String param = "anviaj";
         Solution s = new Solution();
         int r = s.lengthOfLongestSubstring(param);
         System.out.println(r);
