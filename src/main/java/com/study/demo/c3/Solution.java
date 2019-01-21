@@ -32,30 +32,29 @@ class Solution {
 
 
     /**
+     * 第一次成功！！！！但是好像有点慢  6777 ms 为啥这么慢？？
+     *
      * @param s
      * @return
      */
     public int lengthOfLongestSubstring(String s) {
-        Set<Character> current = new HashSet<Character>();
+        List<Character> current = new ArrayList<Character>();
         int max = 0;
         for (int i = 0; i < s.length(); i++) {
             char a = s.charAt(i);
-            if (current.contains(a)) {
-                max = current.size() > max ? current.size() : max;
-                current.clear();
-                current.add(s.charAt(i - 1));
+            int index = current.indexOf(a);
+            if (index != -1) {
+                max = max > current.size() ? max : current.size();
+                current = current.subList(index + 1, current.size());
             }
             current.add(a);
-            if (i + 1 == s.length()) {
-                break;
-            }
         }
-        return current.size() > max ? current.size() : max;
+        return max > current.size() ? max : current.size();
     }
 
 
     public static void main(String[] args) {
-        String param = "anviaj";
+        String param = "bbbbb";
         Solution s = new Solution();
         int r = s.lengthOfLongestSubstring(param);
         System.out.println(r);
