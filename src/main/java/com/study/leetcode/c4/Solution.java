@@ -1,4 +1,4 @@
-package com.study.demo.c4;
+package com.study.leetcode.c4;
 
 /**
  * Created by S on 2019/1/21.

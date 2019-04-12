@@ -1,4 +1,4 @@
-package com.study.demo.c3;
+package com.study.leetcode.c3;
 
 
 import java.util.*;

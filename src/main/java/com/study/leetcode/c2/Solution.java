@@ -1,7 +1,4 @@
-package com.study.demo.c2;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.study.leetcode.c2;
 
 /**
  * Created by S on 2018/11/4.
