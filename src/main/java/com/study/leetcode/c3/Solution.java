@@ -80,7 +80,7 @@ class Solution {
     // 唉看不懂看不懂
     int lengthOfLongestSubstring3(String s){
         int n = s.length();
-        Set<Character> set = new HashSet<>();
+        Set<Character> set = new HashSet<Character>();
         int ans = 0, i = 0, j = 0;
         while (i < n && j < n) {
             // try to extend the range [i, j]
@@ -98,7 +98,7 @@ class Solution {
 
     public int lengthOfLongestSubstring4(String s) {
         int n = s.length(), ans = 0;
-        Map<Character, Integer> map = new HashMap<>(); // current index of character
+        Map<Character, Integer> map = new HashMap<Character, Integer>(); // current index of character
         // try to extend the range [i, j]
         for (int j = 0, i = 0; j < n; j++) {
             if (map.containsKey(s.charAt(j))) {
