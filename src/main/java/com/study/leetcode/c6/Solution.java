@@ -8,7 +8,7 @@ import java.util.List;
  * @author: sunjx
  * @create: 2019/11/15
  */
-public class Solution {
+public class Z字形变换 {
 
     /**
      * 将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。
